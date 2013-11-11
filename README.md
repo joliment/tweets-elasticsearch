@@ -1,4 +1,4 @@
-## hello-tweets – Elasticsearch site plugin
+## tweets-elasticsearch – Elasticsearch site plugin
 
 This is a small, self-contained HTML applications for Elasticsearch:
 
