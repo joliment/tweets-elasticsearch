@@ -34,24 +34,29 @@ WIP:
 CLI:
 
 ```js
-curl -s -X GET localhost:9200/tweets/_search -d '
+curl -v -X POST localhost:9200/tweets/_search -d '
 {
+  "query": { "query_string": {"query": "redis"} },
+  "sort": { "created_at": { "order": "desc" } },
   "from": 0,
-  "size": 2,
-  "query": {
-    "query_string": {"query": "+text:elasticsearch -text:mongodb"}
-  },
-  "sort": {
-    "created_at": { "order": "desc" }
-  }
-}' | jq .
-
+  "size": 1
+}'
 ```
 
-Console:
+Console (it has to be a POST request):
 
 ```js
-$.getJSON( "/tweets/_search", { query: { query_string: { query: "redis"} } } )
+q = {
+  query: { query_string: { query: "redis" } },
+  sort:  { created_at: { order: "desc" } },
+  from: 0,
+  size: 2
+}
+$.ajax({
+    url: "/tweets/_search",
+    type: "POST",
+    data : JSON.stringify(q)
+  })
   .done(function(data) {
     console.log(data);
   })
@@ -61,12 +66,11 @@ $.getJSON( "/tweets/_search", { query: { query_string: { query: "redis"} } } )
   });
 ```
 
-
 ### Initial view
 
-The initial view contains a form element and a container
-for tweets.
+The initial view contains a form element and containers
+for tweets and for error messages.
 
 ```html
-
+<!-- form -->
 ```
