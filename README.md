@@ -3,7 +3,7 @@
 TODO:
 
 * create *index.html*
-* update notes in „ElasticSearch & Ruby”
+* update „ElasticSearch & Ruby” notes
 * add pagination to *index.html*
 
 ----
