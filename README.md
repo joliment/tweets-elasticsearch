@@ -5,6 +5,7 @@ TODO:
 * create *index.html*
 * update „ElasticSearch & Ruby” notes
 * add pagination to *index.html*
+* add highlighting to search results
 
 ----
 
