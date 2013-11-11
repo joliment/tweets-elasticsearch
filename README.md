@@ -1,3 +1,12 @@
+## Warning: WIP
+
+TODO:
+
+* create *index.html*
+* add pagination to *index.html*
+
+----
+
 ## tweets-elasticsearch – Elasticsearch site plugin
 
 This is a small, self-contained HTML applications for Elasticsearch:
