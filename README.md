@@ -1,7 +1,4 @@
-## hello-elasticsearch – Elasticsearch site plugin
-
-A slightly modified Karel Minarik’s
-[World's Smallest Application Hosted in Elasticsearch](https://gist.github.com/karmi/3381710/).
+## hello-tweets – Elasticsearch site plugin
 
 This is a small, self-contained HTML applications for Elasticsearch:
 
@@ -16,29 +13,60 @@ This is a small, self-contained HTML applications for Elasticsearch:
 Install this plugin with this command:
 
 ```sh
-sudo /usr/share/elasticsearch/bin/plugin -install wbzyl/hello-elasticsearch
+sudo /usr/share/elasticsearch/bin/plugin -install wbzyl/hello-tweets
 ```
 
-The files *index.html* and *README.md* are copied into
-*/usr/share/elasticsearch/plugins/hello-elasticsearch/_site* folder.
-
 After install the application will be available at
-[http://localhost:9200/_plugin/hello-elasticsearch/index.html](http://localhost:9200/_plugin/hello-elasticsearch/index.html)
+[http://localhost:9200/_plugin/tweets-elasticsearch/index.html](http://localhost:9200/_plugin/tweets-elasticsearch/index.html)
 
-This application works with Elasticsearch version 0.90.6:
+This application works with Elasticsearch version 0.90.6.
 
-```json
+
+### Importing tweets into Elasticsearch
+
+WIP:
+
+* [Elasticsearch & Ruby](http://wbzyl.inf.ug.edu.pl/nosql/elasticsearch-ruby)
+
+
+### Searching on a command line and a browser console
+
+CLI:
+
+```js
+curl -s -X GET localhost:9200/tweets/_search -d '
 {
-  "nodes": {
-    "LOqA0qc5QbOOWaWNd5Ou8A": {
-      "http_address": "inet[/192.168.0.100:9200]",
-      "version": "0.90.6",
-      "hostname": "localhost.localdomain",
-      "transport_address": "inet[/192.168.0.100:9300]",
-      "name": "Heart Attack"
-    }
+  "from": 0,
+  "size": 2,
+  "query": {
+    "query_string": {"query": "+text:elasticsearch -text:mongodb"}
   },
-  "cluster_name": "wlodek",
-  "ok": true
-}
+  "sort": {
+    "created_at": { "order": "desc" }
+  }
+}' | jq .
+
+```
+
+Console:
+
+```js
+$.getJSON( "/tweets/_search", { query: { query_string: { query: "redis"} } } )
+  .done(function(data) {
+    console.log(data);
+  })
+  .fail(function( jqxhr, textStatus, error ) {
+    var err = textStatus + ", " + error;
+    console.log( "Request Failed: " + err );
+  });
+```
+
+
+### Initial view
+
+The initial view contains a form element and a container
+for tweets.
+
+```html
+
 ```
