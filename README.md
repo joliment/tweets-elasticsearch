@@ -64,7 +64,8 @@ q = {
   size: 2
 }
 $.ajax({
-    url: "/tweets/_search",
+    // url: "/tweets/_search",
+    url: "http://localhost:9200/tweets/_search", // CORS
     type: "POST",
     data : JSON.stringify(q)
   })
