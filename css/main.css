@@ -104,7 +104,11 @@ body {
     margin: 4em;
 }
 
-
+#ajaxform {
+    padding: 1em;
+    font-weight: bold;
+    background-color: #74B73F;
+};
 
 
 
