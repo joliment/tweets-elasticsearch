@@ -10,11 +10,16 @@
     from: 0,
     size: 4
   };
+
+  var results = $('#results');
        
   $('#ajaxform').submit(function(event) {
-    q.query = { query_string: { query: $('#ajaxform input').val() } }; 
+    var input = $('#ajaxform input[type="text"]');
+    q.query = { query_string: { query: input.val() } }; 
+    input.val('');
+
     var query = JSON.stringify(q);
-    console.log('elasticsearch query: ', query)
+    // console.log('elasticsearch query: ', query)
 
     $.ajax({
       // url: "/tweets/_search",
@@ -25,8 +30,10 @@
       .done(function( data ) {
         console.log('total: ', data.hits.total);
         data.hits.hits.forEach(function(x) {
-          console.log(JSON.stringify(x._source));
+          // console.log(JSON.stringify(x._source));
+          results.append('<p>' + x._source.text + '</p>');
         });
+        
       })
       .fail(function( jqxhr, textStatus, error ) {
         var err = textStatus + ", " + error;
