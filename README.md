@@ -24,7 +24,7 @@ This is a small, self-contained HTML applications for Elasticsearch:
 Install this plugin with this command:
 
 ```sh
-sudo /usr/share/elasticsearch/bin/plugin -install wbzyl/hello-tweets
+sudo /usr/share/elasticsearch/bin/plugin -install wbzyl/tweets-elasticsearch
 ```
 
 After install the application will be available at
