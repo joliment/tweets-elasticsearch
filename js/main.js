@@ -5,6 +5,16 @@
     console.log('tweets count: ', data.count);
   });
 
+
+  var source   = $("#tweet").html();
+  var template = Handlebars.compile(source);
+
+  var context = {title: "My New Post", body: "This is my first post!"}
+  var html    = template(context);
+
+  // console.log(html);
+  $('#results').append(html);
+
   $('#ajaxform').submit(function(event) {
     var results = $('#results');
     results.empty();
@@ -20,7 +30,7 @@
     // input.val('');
 
     var query = JSON.stringify(q);
-    console.log('elasticsearch query: ', query)
+    // console.log('elasticsearch query: ', query)
 
     results.empty();
 
