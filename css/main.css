@@ -98,19 +98,26 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+html {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
 
 body {
     font: 100% normal 'DejaVu Sans', sans-serif;
-    margin: 4em;
+    margin: 2em auto 2em auto;
+    width: 800px;
 }
 
 #ajaxform {
     padding: 1em;
     font-weight: bold;
-    background-color: #74B73F;
-};
+    background-color: #74B73F; /* elasticsearch green */
+}
 
-
+#ajaxform select {
+    margin-left: 3em;
+}
 
 
 

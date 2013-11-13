@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>hello, elasticsearch!</title>
+    <title>elastic tweets</title>
 
     <meta name="description" content="elasticsearch site plugin">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +13,18 @@
   </head>
   <body>
 
-    <form name="ajaxform" id="ajaxform" action="" method="POST">Search Tweets: 
+    <!-- http://www.lucenetutorial.com/lucene-query-syntax.html -->
+    <form name="ajaxform" id="ajaxform" action="" method="POST">Search Tweets:
       <input type="text" name="search" value ="">
       <input type="submit" value="Submit">
+      <select name="tweets">
+        <option value="4" selected>4 tweets</option>
+        <option value="16">16 tweets</option>
+        <option value="32">32 tweets</option>
+        <option value="64">64 tweets</option>
+        <option value="128">128 tweets</option>
+        <option value="256">256 tweets</option>
+      </select>
     </form>
 
     <div id="results"></div>

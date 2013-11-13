@@ -8,22 +8,21 @@
   var q = {
     sort:  { created_at: { order: "desc" } },
     from: 0,
-    size: 4
+    size: parseInt($('#ajaxform select').val(), 10)
   };
 
   var results = $('#results');
-       
+
   $('#ajaxform').submit(function(event) {
     var input = $('#ajaxform input[type="text"]');
-    q.query = { query_string: { query: input.val() } }; 
+    q.query = { query_string: { query: input.val() } };
     input.val('');
 
     var query = JSON.stringify(q);
     // console.log('elasticsearch query: ', query)
 
     $.ajax({
-      // url: "/tweets/_search",
-      url: "http://localhost:9200/tweets/_search",
+      url: "http://localhost:9200/tweets/_search", // use CORS
       type: "POST",
       data : query
     })
@@ -33,7 +32,7 @@
           // console.log(JSON.stringify(x._source));
           results.append('<p>' + x._source.text + '</p>');
         });
-        
+
       })
       .fail(function( jqxhr, textStatus, error ) {
         var err = textStatus + ", " + error;

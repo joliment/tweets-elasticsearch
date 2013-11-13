@@ -1,11 +1,24 @@
-## Warning: WIP
+## Warning – WIP
 
-TODO:
+**TL;TW:**
 
-* create *index.html*
+* [Elasticsearch v1.0.0](http://www.elasticsearch.org/blog/1-0-0-beta1-released/) with a new distributedd percolation
+* [elasticsearch-ruby](https://github.com/elasticsearch/elasticsearch-ruby) gem with Elasticsearch v1.0.0 support
+
+**TODO:**
+
 * update „ElasticSearch & Ruby” notes
-* add pagination to *index.html*
+* ...
+* use [Handlebars.js](http://handlebarsjs.com/) or
+  [EJS](http://embeddedjs.com/) (Embedded Javascript)
+  templates for the `<div id="results"></div>` container
+* add pagination
 * add highlighting to search results
+
+**TODO Apps:**
+
+* prepare an example app with [Ember.js](http://discuss.emberjs.com/)
+  and [ember-data kit for both pushing and querying objects to Elasticsearch cluster](https://github.com/roundscope/ember-data-elasticsearch-kit)
 
 ----
 
@@ -14,10 +27,14 @@ TODO:
 This is a small, self-contained HTML applications for Elasticsearch:
 
 ```
+.
 |-- css
 |   |-- main.css
 |   `-- normalize.css
 |-- index.html
+|-- js
+|   |-- main-00.js
+|   `-- main.js
 `-- README.md
 ```
 
@@ -35,12 +52,10 @@ This application works with Elasticsearch version 0.90.6.
 
 ### Importing tweets into Elasticsearch
 
-WIP:
-
-* [Elasticsearch & Ruby](http://wbzyl.inf.ug.edu.pl/nosql/elasticsearch-ruby)
+WIP
 
 
-### Searching on a command line and a browser console
+### Searching on a command line and in a browser console
 
 CLI:
 
@@ -65,7 +80,7 @@ q = {
 }
 $.ajax({
     // url: "/tweets/_search",
-    url: "http://localhost:9200/tweets/_search", // CORS
+    url: "http://localhost:9200/tweets/_search", // use CORS
     type: "POST",
     data : JSON.stringify(q)
   })
@@ -84,5 +99,45 @@ The initial view contains a form element and containers
 for tweets and for error messages.
 
 ```html
-<!-- form -->
+<!doctype html>
+<html lang="pl" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>elastic tweets</title>
+
+    <meta name="description" content="elasticsearch site plugin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+
+    <form name="ajaxform" id="ajaxform" action="" method="POST">Search Tweets:
+      <input type="text" name="search" value ="">
+      <input type="submit" value="Submit">
+      <select name="tweets">
+        <option value="16">16 tweets</option>
+        <option value="32">32 tweets</option>
+        <option value="64" selected>64 tweets</option>
+        <option value="128">128 tweets</option>
+        <option value="256">256 tweets</option>
+      </select>
+    </form>
+
+    <div id="results"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
+
 ```
+
+Useful links:
+
+* [Simple example of using HTML form elements](http://www.fincher.org/tips/web/SimpleForm.shtml)
+* [Date.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse)
