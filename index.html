@@ -31,17 +31,17 @@
     <div id="results"></div>
 
     <script id="tweet" type="text/x-handlebars-template">
+      {{#each this}}
       <div class="tweet">
-        <p>text</p>
-        <div class="info">links <time>time</time></div>
-      </div>
-
-      <div class="entry">
-        <h1>{{title}}</h1>
-        <div class="body">
-          {{body}}
+        <p>{{_source.text}}</p>
+        <div class="info">
+          {{#each _source.urls}}
+            <a href="{{this}}">[★]</a>
+          {{/each}}
+           <time>{{_source.created_at}}</time>
         </div>
       </div>
+      {{/each}}
     </script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

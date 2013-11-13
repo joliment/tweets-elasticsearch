@@ -1,19 +1,22 @@
 ## Warning – WIP
 
+
 **TL;TW:**
 
 * [Elasticsearch v1.0.0](http://www.elasticsearch.org/blog/1-0-0-beta1-released/) with a new distributedd percolation
 * [elasticsearch-ruby](https://github.com/elasticsearch/elasticsearch-ruby) gem with Elasticsearch v1.0.0 support
 
+
 **TODO:**
 
-* update „ElasticSearch & Ruby” notes
-* ...
-* use [Handlebars.js](http://handlebarsjs.com/) or
-  [EJS](http://embeddedjs.com/) (Embedded Javascript)
-  templates for the `<div id="results"></div>` container
+* use [Flexboxes](http://wbzyl.inf.ug.edu.pl/hcj/css-flexbox)
+  in the `<div id="results"></div>` container
+  (instead floating time elements)
 * add pagination
 * add highlighting to search results
+* use [EJS](http://embeddedjs.com/) (Embedded Javascript)
+  templates for the `<div id="results"></div>` container
+
 
 **TODO Apps:**
 
