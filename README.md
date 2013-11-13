@@ -84,13 +84,12 @@ q = {
   size: 2
 }
 $.ajax({
-    url: "http://localhost:9200/tweets/_search", // use CORS
-    type: "POST",
-    data : JSON.stringify(q)
-  })
-  .done(function(data) {
-    console.log(data);
-  });
+  url: "http://localhost:9200/tweets/_search", // use CORS
+  type: "POST",
+  data : JSON.stringify(q)
+}).done(function(data) {
+  console.log(data);
+});
 ```
 
 ### Initial view
