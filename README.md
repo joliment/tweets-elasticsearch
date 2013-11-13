@@ -140,11 +140,9 @@ for tweets and for error messages.
 HTML5 [time element](http://www.brucelawson.co.uk/2012/best-of-time/):
 
 ```html
-<time itemprop="datePublished" datetime="2009-08-30">2011-11-12T14:54:39Z</time>
-
 <time>2011-11-12T14:54:39Z</time>
+<time itemprop="datePublished" datetime="2009-08-30">2011-11-12T14:54:39Z</time>
 ```
-
 
 Useful links:
 
