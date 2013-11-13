@@ -1,7 +1,7 @@
 ## Warning – WIP
 
 
-**TL;TW:**
+**TL;DW:**
 
 * [Elasticsearch v1.0.0](http://www.elasticsearch.org/blog/1-0-0-beta1-released/) with a new distributedd percolation
 * [elasticsearch-ruby](https://github.com/elasticsearch/elasticsearch-ruby) gem with Elasticsearch v1.0.0 support
