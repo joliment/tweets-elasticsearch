@@ -137,7 +137,19 @@ for tweets and for error messages.
 
 ```
 
+HTML5 [time element](http://www.brucelawson.co.uk/2012/best-of-time/):
+
+```html
+<time itemprop="datePublished" datetime="2009-08-30">2011-11-12T14:54:39Z</time>
+
+<time>2011-11-12T14:54:39Z</time>
+```
+
+
 Useful links:
 
 * [Simple example of using HTML form elements](http://www.fincher.org/tips/web/SimpleForm.shtml)
 * [Date.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse)
+* [html time element](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-time-element) —
+  HTML5 draft
+* [array predefined core objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Predefined_Core_Objects)

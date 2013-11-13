@@ -107,6 +107,7 @@ body {
     font: 100% normal 'DejaVu Sans', sans-serif;
     margin: 2em auto 2em auto;
     width: 800px;
+    background-color: #ddd;
 }
 
 #ajaxform {
@@ -119,11 +120,27 @@ body {
     margin-left: 3em;
 }
 
+#results .tweet {
+    background-color: white;
+    padding: 1em;
+    margin: 1em 0;
+}
 
+.info {
+   display: block;
+   font-size: 80%;
+   margin-top: 1em;
+}
 
+.info time {
+   font-style: italic;
+   float: right;
+   margin-right: 1em;
+}
 
-
-
+.info a {
+   margin-left: 1em;
+}
 
 
 

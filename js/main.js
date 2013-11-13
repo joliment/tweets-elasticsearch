@@ -5,21 +5,24 @@
     console.log('tweets count: ', data.count);
   });
 
-  var q = {
-    sort:  { created_at: { order: "desc" } },
-    from: 0,
-    size: parseInt($('#ajaxform select').val(), 10)
-  };
-
-  var results = $('#results');
-
   $('#ajaxform').submit(function(event) {
+    var results = $('#results');
+    results.empty();
+
+    var q = {
+      sort:  { created_at: { order: "desc" } },
+      from: 0,
+      size: parseInt($('#ajaxform select').val(), 10)
+    };
+
     var input = $('#ajaxform input[type="text"]');
     q.query = { query_string: { query: input.val() } };
-    input.val('');
+    // input.val('');
 
     var query = JSON.stringify(q);
-    // console.log('elasticsearch query: ', query)
+    console.log('elasticsearch query: ', query)
+
+    results.empty();
 
     $.ajax({
       url: "http://localhost:9200/tweets/_search", // use CORS
@@ -29,8 +32,25 @@
       .done(function( data ) {
         console.log('total: ', data.hits.total);
         data.hits.hits.forEach(function(x) {
-          // console.log(JSON.stringify(x._source));
-          results.append('<p>' + x._source.text + '</p>');
+          // console.log(JSON.stringify(x));
+          var source = x._source;
+
+          var text = '<p>' + source.text + '</p>';
+          var datetime = source.created_at;
+          var urls = source.urls;
+
+          var links = " ";
+          if (urls.length > 0) {
+            links = urls.reduce(function(acc, curr, i){
+              return acc + "<a href='" + curr + "'>[" + (i+1) + "]</a>";
+            }, "");
+            // console.log("#urls: ", urls.length);
+          }
+          // console.log("links: ", links);
+          var time = '<time>' + datetime + '</time>';
+          var info = "<div class='info'>" + links + time + "</div>";
+
+          results.append('<div class="tweet">' + text + info + '</div>');
         });
 
       })
