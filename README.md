@@ -57,12 +57,14 @@ WIP
 
 ### Searching on a command line and in a browser console
 
+* [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html)
+
 CLI:
 
 ```js
 curl -v -X POST localhost:9200/tweets/_search -d '
 {
-  "query": { "query_string": {"query": "redis"} },
+  "query": { "query_string": {"query": "elasticsearch"} },
   "sort": { "created_at": { "order": "desc" } },
   "from": 0,
   "size": 1
@@ -73,23 +75,18 @@ Console (it has to be a POST request):
 
 ```js
 q = {
-  query: { query_string: { query: "redis" } },
+  query: { query_string: { query: "elasticsearch" } },
   sort:  { created_at: { order: "desc" } },
   from: 0,
   size: 2
 }
 $.ajax({
-    // url: "/tweets/_search",
     url: "http://localhost:9200/tweets/_search", // use CORS
     type: "POST",
     data : JSON.stringify(q)
   })
   .done(function(data) {
     console.log(data);
-  })
-  .fail(function( jqxhr, textStatus, error ) {
-    var err = textStatus + ", " + error;
-    console.log( "Request Failed: " + err );
   });
 ```
 
