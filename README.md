@@ -85,23 +85,39 @@ The above command returns:
     "hits": [
       {
         "sort": [
-          "59"
+          1384452721000
         ],
         "fields": {
+          "text": "es 0.3.14 https://t.co/gwvrHwP4Z6 API around the ElasticSearch RESTful API.",
           "urls": [
-            "http://www.elasticsearch.org/blog/0-90-7-released/"
+            "https://npmjs.org/package/es"
           ],
-          "text": "Elasticsearch 0.90.7 released http://t.co/A6RJhM5q6B",
-          "created_at": "2013-11-13 16:19:59 +0100"
+          "created_at": "2013-11-14 18:12:01 +0000"
         },
         "_score": null,
-        "_id": "400644217279889409",
+        "_id": "401049899925397505",
+        "_type": "elasticsearch",
+        "_index": "tweets"
+      },
+      {
+        "sort": [
+          1384452703000
+        ],
+        "fields": {
+          "text": "Posted my slides from Tuesday's http://t.co/a52zujW5Z1",
+          "urls": [
+            "http://ow.ly/qPgl6"
+          ],
+          "created_at": "2013-11-14 18:11:43 +0000"
+        },
+        "_score": null,
+        "_id": "401049820548567040",
         "_type": "elasticsearch",
         "_index": "tweets"
       }
     ],
     "max_score": null,
-    "total": 146
+    "total": 2
   },
   "_shards": {
     "failed": 0,
@@ -109,7 +125,7 @@ The above command returns:
     "total": 1
   },
   "timed_out": false,
-  "took": 1
+  "took": 2
 }
 ```
 
