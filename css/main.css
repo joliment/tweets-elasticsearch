@@ -112,6 +112,7 @@ body {
 
 #ajaxform {
     padding: 1em;
+    width: 100%;
     font-weight: bold;
     background-color: #74B73F; /* elasticsearch green */
 }
@@ -122,14 +123,18 @@ body {
 
 #results .tweet {
     background-color: white;
-    padding: 1em;
     margin: 1em 0;
+    padding: 1em;
+
+    /* clearing floats trick */
+    overflow: auto;
+    width: 100%;
 }
 
 .info {
-   display: block;
-   font-size: 80%;
-   margin-top: 1em;
+    display: block;
+    font-size: 80%;
+    margin-top: 1em;
 }
 
 .info time {

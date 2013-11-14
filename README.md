@@ -88,7 +88,7 @@ The above command returns:
           "urls": [
             "http://www.elasticsearch.org/blog/0-90-7-released/"
           ],
-          "text": "RT @elasticsearch: Elasticsearch 0.90.7 released http://t.co/A6RJhM5q6B",
+          "text": "Elasticsearch 0.90.7 released http://t.co/A6RJhM5q6B",
           "created_at": "2013-11-13 16:19:59 +0100"
         },
         "_score": null,
@@ -148,16 +148,19 @@ for tweets and for error messages.
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+
   </head>
   <body>
 
+    <!-- http://www.lucenetutorial.com/lucene-query-syntax.html -->
     <form name="ajaxform" id="ajaxform" action="" method="POST">Search Tweets:
       <input type="text" name="search" value ="">
       <input type="submit" value="Submit">
       <select name="tweets">
+        <option value="4">4 tweets</option>
         <option value="16">16 tweets</option>
         <option value="32">32 tweets</option>
-        <option value="64" selected>64 tweets</option>
+        <option value="64 selected">64 tweets</option>
         <option value="128">128 tweets</option>
         <option value="256">256 tweets</option>
       </select>
@@ -165,13 +168,29 @@ for tweets and for error messages.
 
     <div id="results"></div>
 
+    <script id="tweet" type="text/x-handlebars-template">
+      {{#each hits}}
+      <div class="tweet">
+        <p>{{fields.text}}</p>
+        <div class="info">
+          {{#each fields.urls}}
+            <a href="{{this}}"><img src="images/external_link.png" alt="[external link]"></a>
+          {{/each}}
+          <time>{{fields.created_at}}</time>
+        </div>
+      </div>
+      {{/each}}
+    </script>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script>window.jQuery ||
+       document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+    <script src="js/handlebars-v1.1.2.js"></script>
+
     <script src="js/main.js"></script>
 
   </body>
 </html>
-
 ```
 
 HTML5 [time element](http://www.brucelawson.co.uk/2012/best-of-time/):
