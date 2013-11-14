@@ -27,7 +27,8 @@
     console.log('elasticsearch query: ', query)
 
     $.ajax({
-      url: "http://localhost:9200/tweets/_search", // use CORS
+      url: "/tweets/_search",
+      // url: "http://localhost:9200/tweets/_search", // use CORS
       type: "POST",
       data : query
     }).done(function(data) {
