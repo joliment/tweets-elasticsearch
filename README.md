@@ -51,7 +51,7 @@ sudo /usr/share/elasticsearch/bin/plugin -install wbzyl/tweets-elasticsearch
 ```
 
 After install the application will be available at
-[http://localhost:9200/_plugin/tweets-elasticsearch/index.html](http://localhost:9200/_plugin/tweets-elasticsearch/index.html)
+[http://localhost:9200/_plugin/tweets-elasticsearch/](http://localhost:9200/_plugin/tweets-elasticsearch/)
 
 This application works with Elasticsearch version 0.90.6.
 
