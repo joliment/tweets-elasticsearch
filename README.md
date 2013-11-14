@@ -33,8 +33,8 @@ This is a small, self-contained HTML applications for Elasticsearch:
 .
 |-- index.html
 |-- css
-|   |-- main.css
-|   `-- normalize.css
+|   |-- normalize.css
+|   `-- main.css
 |-- images
 |   `-- external_link.png
 |-- js
