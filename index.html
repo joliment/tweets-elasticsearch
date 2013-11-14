@@ -31,14 +31,14 @@
     <div id="results"></div>
 
     <script id="tweet" type="text/x-handlebars-template">
-      {{#each this}}
+      {{#each hits}}
       <div class="tweet">
-        <p>{{_source.text}}</p>
+        <p>{{fields.text}}</p>
         <div class="info">
-          {{#each _source.urls}}
-            <a href="{{this}}">[★]</a>
+          {{#each fields.urls}}
+            <a href="{{this}}"><img src="images/external_link.png" alt="[external link]"></a>
           {{/each}}
-           <time>{{_source.created_at}}</time>
+           <time>{{fields.created_at}}</time>
         </div>
       </div>
       {{/each}}

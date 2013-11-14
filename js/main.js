@@ -1,9 +1,8 @@
 (function() {
-  // debugging
 
   $.getJSON('http://localhost:9200/tweets/_count', function( data ) {
     console.log('is CORS supported?', $.support.cors);
-    console.log('tweets count: ', data.count);
+    console.log('#tweets: ', data.count);
   });
 
   var source   = $("#tweet").html();
@@ -32,8 +31,8 @@
       type: "POST",
       data : query
     }).done(function(data) {
-      console.log('#total: ', data.hits.total);
-      var html = template(data.hits.hits);
+      console.log('#tweets found: ', data.hits.total);
+      var html = template(data.hits);
       results.append(html);
     });
 
