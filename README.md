@@ -31,19 +31,17 @@ This is a small, self-contained HTML applications for Elasticsearch:
 
 ```
 .
+|-- index.html
 |-- css
 |   |-- main.css
 |   `-- normalize.css
 |-- images
 |   `-- external_link.png
-|-- index.html
 |-- js
-|   |-- handlebars-v1.1.2.js
-|   |-- main-00.js
-|   |-- main.js
-|   `-- vendor
-|       `-- jquery-1.10.2.min.js
-`-- README.md
+    |-- main.js
+    `-- vendor
+        |-- handlebars-v1.1.2.js
+        `-- jquery-1.10.2.min.js
 ```
 
 Install this plugin with this command:
