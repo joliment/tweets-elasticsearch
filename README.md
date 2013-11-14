@@ -74,7 +74,7 @@ curl -v -X POST localhost:9200/tweets/_search -d '
   "sort": { "created_at": { "order": "desc" } },
   "fields": ["text", "urls", "created_at"],
   "from": 0,
-  "size": 1
+  "size": 2
 }'
 ```
 The above command returns:
