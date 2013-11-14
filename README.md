@@ -88,7 +88,7 @@ The above command returns:
           1384452721000
         ],
         "fields": {
-          "text": "es 0.3.14 https://t.co/gwvrHwP4Z6 API around the ElasticSearch RESTful API.",
+          "text": "es 0.3.14 https://t.co/gwvrHwP4Z6 Elasticsearch RESTful API.",
           "urls": [
             "https://npmjs.org/package/es"
           ],
@@ -180,6 +180,7 @@ for tweets and for error messages.
 
     <div id="results"></div>
 
+    <!-- js/main.js: template(data.hits) -->
     <script id="tweet" type="text/x-handlebars-template">
       {{#each hits}}
       <div class="tweet">
