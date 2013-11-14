@@ -69,19 +69,57 @@ curl -v -X POST localhost:9200/tweets/_search -d '
 {
   "query": { "query_string": {"query": "elasticsearch"} },
   "sort": { "created_at": { "order": "desc" } },
+  "fields": ["text", "urls", "created_at"],
   "from": 0,
   "size": 1
 }'
 ```
+The above command returns:
 
-Console (it has to be a POST request):
+```json
+{
+  "hits": {
+    "hits": [
+      {
+        "sort": [
+          "59"
+        ],
+        "fields": {
+          "urls": [
+            "http://www.elasticsearch.org/blog/0-90-7-released/"
+          ],
+          "text": "RT @elasticsearch: Elasticsearch 0.90.7 released http://t.co/A6RJhM5q6B",
+          "created_at": "2013-11-13 16:19:59 +0100"
+        },
+        "_score": null,
+        "_id": "400644217279889409",
+        "_type": "elasticsearch",
+        "_index": "tweets"
+      }
+    ],
+    "max_score": null,
+    "total": 146
+  },
+  "_shards": {
+    "failed": 0,
+    "successful": 1,
+    "total": 1
+  },
+  "timed_out": false,
+  "took": 1
+}
+```
+
+The same thing, but on the browser console
+(it has to be a POST request?):
 
 ```js
 q = {
   query: { query_string: { query: "elasticsearch" } },
   sort:  { created_at: { order: "desc" } },
+  fields: ["text", "urls", "created_at"],
   from: 0,
-  size: 2
+  size: 1
 }
 $.ajax({
   url: "http://localhost:9200/tweets/_search", // use CORS

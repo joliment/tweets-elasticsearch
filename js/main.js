@@ -11,7 +11,7 @@
 
   var q = {
     sort:  { created_at: { order: "desc" } },
-    from: 0
+    fields: ["text", "urls", "created_at"]
   };
 
   $('#ajaxform').submit(function(event) {
@@ -20,6 +20,7 @@
 
     var input = $('#ajaxform input[type="text"]');
 
+    q.from = 0;
     q.size = parseInt($('#ajaxform select').val(), 10);
     q.query = { query_string: { query: input.val() } };
 
