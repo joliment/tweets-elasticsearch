@@ -160,14 +160,6 @@ for tweets and for error messages.
     <form name="ajaxform" id="ajaxform" action="" method="POST">Search Tweets:
       <input type="text" name="search" value ="">
       <input type="submit" value="Submit">
-      <select name="tweets">
-        <option value="4">4 tweets</option>
-        <option value="16">16 tweets</option>
-        <option value="32">32 tweets</option>
-        <option value="64 selected">64 tweets</option>
-        <option value="128">128 tweets</option>
-        <option value="256">256 tweets</option>
-      </select>
     </form>
 
     <div id="results"></div>
@@ -189,8 +181,7 @@ for tweets and for error messages.
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery ||
        document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-    <script src="js/handlebars-v1.1.2.js"></script>
-
+    <script src="js/vendor/handlebars-v1.1.2.js"></script>
     <script src="js/main.js"></script>
 
   </body>
