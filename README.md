@@ -122,7 +122,7 @@ q = {
   sort:  { created_at: { order: "desc" } },
   fields: ["text", "urls", "created_at"],
   from: 0,
-  size: 1
+  size: 2
 }
 $.ajax({
   // url: "tweets/_search",
