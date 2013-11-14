@@ -9,8 +9,8 @@
   var template = Handlebars.compile(source);
 
   var q = {
-    sort:  { created_at: { order: "desc" } },
-    fields: ["text", "urls", "created_at"]
+    "sort":  { "created_at": { "order": "desc" } },
+    "fields": ["text", "urls", "created_at"]
   };
 
   $('#ajaxform').submit(function(event) {
@@ -19,16 +19,16 @@
 
     var input = $('#ajaxform input[type="text"]');
 
-    q.from = 0;
-    q.size = parseInt($('#ajaxform select').val(), 10);
-    q.query = { query_string: { query: input.val() } };
+    q["from"] = 0;
+    q["size"] = parseInt($('#ajaxform select').val(), 10);
+    q["query"] = { "query_string": { "query": input.val() } };
 
     var query = JSON.stringify(q);
     console.log('elasticsearch query: ', query)
 
     $.ajax({
-      url: "/tweets/_search",
-      // url: "http://localhost:9200/tweets/_search", // use CORS
+      // url: "/tweets/_search",
+      url: "http://localhost:9200/tweets/_search", // use CORS
       type: "POST",
       data : query
     }).done(function(data) {
