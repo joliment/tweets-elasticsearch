@@ -61,7 +61,7 @@ This application works with Elasticsearch version 0.90.6.
 WIP
 
 
-### Searching on a command line and in a browser console
+### Searching on command line and in browser console
 
 * [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html)
 
@@ -74,58 +74,62 @@ curl -v -X POST localhost:9200/tweets/_search -d '
   "sort": { "created_at": { "order": "desc" } },
   "fields": ["text", "urls", "created_at"],
   "from": 0,
-  "size": 2
+  "size": 1,
+  "facets": {
+    "hashtags": {
+      "terms":  { "field": "hashtags" },
+      "global": true
+    }
+  }
 }'
 ```
+
 Running the above command returns:
 
 ```json
 {
+  "facets": {
+    "hashtags": {
+      "terms": [
+        { "count": 13, "term": "dbts2013" },
+        { "count":  7, "term": "mongodb" },
+        { "count":  6, "term": "nosql" },
+        { "count":  6, "term": "couchdb" },
+        { "count":  6, "term": "cassandra" },
+        { "count":  5, "term": "d3js" },
+        { "count":  4, "term": "riak" },
+        { "count":  4, "term": "redis" },
+        { "count":  4, "term": "rails" },
+        { "count":  4, "term": "jobs" }
+      ],
+      "other": 90,
+      "total": 149,
+      "missing": 124,
+      "_type": "terms"
+    }
+  },
   "hits": {
     "hits": [
       {
-        "sort": [
-          1384452721000
-        ],
+        "sort": [ 1384501672000 ],
         "fields": {
-          "text": "es 0.3.14 https://t.co/gwvrHwP4Z6 Elasticsearch RESTful API.",
-          "urls": [
-            "https://npmjs.org/package/es"
-          ],
-          "created_at": "2013-11-14 18:12:01 +0000"
+          "urls": [],
+          "text": "@epohl PROBLEM - logs - WARNING - elasticsearch: 878",
+          "created_at": "2013-11-15 08:47:52 +0100"
         },
         "_score": null,
-        "_id": "401049899925397505",
-        "_type": "elasticsearch",
-        "_index": "tweets"
-      },
-      {
-        "sort": [
-          1384452703000
-        ],
-        "fields": {
-          "text": "Posted my slides from Tuesday's http://t.co/a52zujW5Z1",
-          "urls": [
-            "http://ow.ly/qPgl6"
-          ],
-          "created_at": "2013-11-14 18:11:43 +0000"
-        },
-        "_score": null,
-        "_id": "401049820548567040",
+        "_id": "401255214327824384",
         "_type": "elasticsearch",
         "_index": "tweets"
       }
     ],
     "max_score": null,
-    "total": 2
+    "total": 10
   },
   "_shards": {
-    "failed": 0,
-    "successful": 1,
-    "total": 1
+    "failed": 0, "successful": 1, "total": 1
   },
-  "timed_out": false,
-  "took": 2
+  "timed_out": false, "took": 2
 }
 ```
 
