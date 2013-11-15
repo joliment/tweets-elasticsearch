@@ -65,7 +65,7 @@ WIP
 
 * [Lucene Query Syntax](http://www.lucenetutorial.com/lucene-query-syntax.html)
 
-CLI:
+Terminal:
 
 ```js
 curl -v -X POST localhost:9200/tweets/_search -d '
@@ -77,7 +77,7 @@ curl -v -X POST localhost:9200/tweets/_search -d '
   "size": 2
 }'
 ```
-The above command returns:
+Running the above command returns:
 
 ```json
 {
@@ -150,10 +150,11 @@ $.ajax({
 });
 ```
 
-### Initial view
+### Index View
 
-The initial view contains a form element and containers
-for tweets and for error messages.
+In the view we use [Handlebars.js](http://handlebarsjs.com/) templates.
+
+The view contains a form element and containers for tweets and for hashtags facets.
 
 ```html
 <!doctype html>
@@ -178,6 +179,7 @@ for tweets and for error messages.
       <input type="submit" value="Submit">
     </form>
 
+    <div id="hashtags"></div>
     <div id="results"></div>
 
     <!-- js/main.js: template(data.hits) -->
@@ -195,6 +197,12 @@ for tweets and for error messages.
       {{/each}}
     </script>
 
+    <script id="facet" type="text/x-handlebars-template">
+      <h5>Top hashtags</h5>
+      <p>#elasticsearch: 128</p>
+      <p>#mongodb: 64</p>
+    </script>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>window.jQuery ||
        document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
@@ -205,17 +213,6 @@ for tweets and for error messages.
 </html>
 ```
 
-HTML5 [time element](http://www.brucelawson.co.uk/2012/best-of-time/):
+Useful link:
 
-```html
-<time>2011-11-12T14:54:39Z</time>
-<time itemprop="datePublished" datetime="2009-08-30">2011-11-12T14:54:39Z</time>
-```
-
-Useful links:
-
-* [Simple example of using HTML form elements](http://www.fincher.org/tips/web/SimpleForm.shtml)
 * [Date.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse)
-* [html time element](http://www.w3.org/html/wg/drafts/html/master/text-level-semantics.html#the-time-element) —
-  HTML5 draft
-* [array predefined core objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Predefined_Core_Objects)
