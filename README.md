@@ -133,8 +133,7 @@ Running the above command returns:
 }
 ```
 
-The same thing, but on the browser console
-(it has to be a POST request?):
+The above query changed as to be run on the browser console:
 
 ```js
 q = {
@@ -142,7 +141,13 @@ q = {
   sort:  { created_at: { order: "desc" } },
   fields: ["text", "urls", "created_at"],
   from: 0,
-  size: 2
+  size: 2,
+  facets: {
+    hashtags: {
+      terms:  { field: "hashtags" },
+      global: true
+    }
+  }
 }
 $.ajax({
   // url: "tweets/_search",
