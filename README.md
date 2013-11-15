@@ -152,7 +152,7 @@ $.ajax({
 
 ### Index View
 
-In the view we use [Handlebars.js](http://handlebarsjs.com/) templates.
+In the view we use the [Handlebars.js](http://handlebarsjs.com/) templates.
 
 The view contains a form element and containers for tweets and for hashtags facets.
 
