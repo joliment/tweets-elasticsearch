@@ -206,10 +206,12 @@ The view contains a form element and containers for tweets and for hashtags face
       {{/each}}
     </script>
 
+    <!-- js/main.js: template(data.facets.hashtags) -->
     <script id="facet" type="text/x-handlebars-template">
-      <h5>Top hashtags</h5>
-      <p>#elasticsearch: 128</p>
-      <p>#mongodb: 64</p>
+      <h4>#hashtags: {{total}}</h4>
+      {{#each terms}}
+      <p>#{{term}}: {{count}}</p>
+      {{/each}}
     </script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
