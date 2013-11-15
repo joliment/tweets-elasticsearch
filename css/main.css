@@ -105,9 +105,10 @@ html {
 
 body {
     font: 100% normal 'DejaVu Sans', sans-serif;
-    margin: 2em auto 2em auto;
-    width: 800px;
+    margin: 2em auto 2em 4em;
+    width: 760px;
     background-color: #ddd;
+    position: relative;
 }
 
 #ajaxform {
@@ -119,6 +120,18 @@ body {
 
 #ajaxform select {
     margin-left: 3em;
+}
+
+#hashtags {
+    background-color: yellow;
+    position: absolute;
+    left: 800px;
+    width: 200px;
+    padding: 1em;
+}
+
+#hashtags h5 {
+    margin: 0;
 }
 
 #results .tweet {
