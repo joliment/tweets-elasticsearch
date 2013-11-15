@@ -28,7 +28,7 @@
       </select>
     </form>
 
-    <div id="hashtags"><h5>Top hashtags</h5></div>
+    <div id="hashtags"><h4>top 10 hashtags</h4></div>
 
     <div id="results"></div>
 
@@ -47,9 +47,10 @@
     </script>
 
     <script id="facet" type="text/x-handlebars-template">
-      <h5>Top hashtags</h5>
-      <p>#elasticsearch: 128</p>
-      <p>#mongodb: 64</p>
+      <h4>#hashtags: {{total}}</h4>
+      {{#each terms}}
+      <p>#{{term}}: {{count}}</p>
+      {{/each}}
     </script>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

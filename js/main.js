@@ -5,18 +5,20 @@
     console.log('#tweets: ', data.count);
   });
 
-  var source   = $("#tweet").html();
-  var template = Handlebars.compile(source);
+  var tweet_template = Handlebars.compile($("#tweet").html());
+  var facet_template = Handlebars.compile($("#facet").html());
 
   var q = {
     "sort":  { "created_at": { "order": "desc" } },
-    "fields": ["text", "urls", "created_at"]
+    "fields": ["text", "urls", "created_at"],
+    "facets": {
+      "hashtags": {
+        "terms":  { "field": "hashtags" }, "global": true
+      }
+    }
   };
 
   $('#ajaxform').submit(function(event) {
-    var results = $('#results');
-    results.empty();
-
     var input = $('#ajaxform input[type="text"]');
 
     q["from"] = 0;
@@ -28,17 +30,19 @@
 
     $.ajax({
       // url: "/tweets/_search",
-      url: "http://localhost:9200/tweets/_search",     // use CORS
+      url: "http://localhost:9200/tweets/_search", // use CORS
       // url: "http://192.168.0.103:9200/tweets/_search",
       type: "POST",
       data : query
     }).done(function(data) {
       console.log('#tweets found: ', data.hits.total);
-      var html = template(data.hits);
-      results.append(html);
+      console.log('#tweets facets: ', data.facets.hashtags);
+
+      $('#results').html(tweet_template(data.hits));
+      $('#hashtags').html(facet_template(data.facets.hashtags));
     });
 
     event.preventDefault();
   });
 
-})();
+}());
