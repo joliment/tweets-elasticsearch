@@ -123,9 +123,10 @@ body {
 }
 
 #hashtags {
-    background-color: yellow;
+/*  background-color: #E2DF9A; */
     position: absolute;
     left: 800px;
+    top: 4.5em;
     width: 200px;
     padding: 1em;
 }
