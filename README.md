@@ -215,4 +215,4 @@ The view contains a form element and containers for tweets and for hashtags face
 
 Useful link:
 
-* [Date.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse)
+* JavaScript [Date.parse()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse)
